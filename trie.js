@@ -100,6 +100,20 @@ var Trie = function() {
 		return getWords(dictionary);
 	};
 	
+	/**
+	 * Get words by prefix
+	 */
+	self.getWordsByPrefix = function (prefix) {
+		if (typeof word !== 'string' || ! word.length) {return [];}
+		var current = dictionary;
+		for (var i = 0, c = prefix.length; i < c; i++) {
+			if (! current[prefix[i]]) {return [];}
+			current = current[prefix[i]];
+		}
+
+		return getWords(current, prefix)
+	}
+	
 };
 	
 // ----------------------------------------------------------------------------
