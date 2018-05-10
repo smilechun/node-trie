@@ -104,7 +104,7 @@ var Trie = function() {
 	 * Get words by prefix
 	 */
 	self.getWordsByPrefix = function (prefix) {
-		if (typeof word !== 'string' || ! word.length) {return [];}
+		if (typeof prefix !== 'string' || !prefix.length) {return [];}
 		var current = dictionary;
 		for (var i = 0, c = prefix.length; i < c; i++) {
 			if (! current[prefix[i]]) {return [];}
